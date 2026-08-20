@@ -121,8 +121,7 @@ app already has sign-in screens to wire up.
 
 FirebaseUI ships pre-built sign-in screens handling sign-in, sign-up, password
 reset, account linking, and MFA. Prefer it unless one of the section 2
-conditions applies. There is no FirebaseUI for Flutter — Flutter apps use the
-client SDK above.
+conditions applies.
 
 - **iOS (SwiftUI)**:
   [references/firebaseui_ios.md](references/firebaseui_ios.md)
@@ -130,9 +129,11 @@ client SDK above.
   [references/firebaseui_android.md](references/firebaseui_android.md)
 - **Web (React, Shadcn, Angular)**:
   [references/firebaseui_web.md](references/firebaseui_web.md)
+- **Flutter**:
+  [references/firebaseui_flutter.md](references/firebaseui_flutter.md)
 
 Each reference above is a pointer, not a guide: it routes to that library's own
-agent skill, which is maintained alongside the library. Load that skill and
+agent skill, or to its documentation where no skill exists. Load that source and
 follow it — do not implement from the reference or the library README.
 
 ### 4. Security Rules
