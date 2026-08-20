@@ -1,6 +1,6 @@
 ---
 name: firebase-auth-basics
-description: Guide for setting up and using Firebase Authentication. Use this skill when the user's app requires user sign-in, user management, or secure data access using auth rules.
+description: Guide for setting up Firebase Authentication and FirebaseUI drop-in sign-in screens on Web, iOS, Android, and Flutter. Use when adding user sign-in, sign-up, password reset, social/OAuth providers, a login or auth UI, or user management to an app. Don't use for authoring Firestore or Storage security rules beyond `request.auth` checks.
 compatibility: This skill is best used with the Firebase CLI, but does not require it. Firebase CLI can be accessed through `npx -y firebase-tools@latest`.
 metadata:
   category: Identity
@@ -107,27 +107,33 @@ Enable other providers in the Firebase Console.
 
 ### 2. Client Setup & Usage
 
-**Web** See [references/client_sdk_web.md](references/client_sdk_web.md).
+Build auth UI yourself against the Auth SDK. Use these when the user asks for
+custom-designed screens, names their own UI framework or design system, or the
+app already has sign-in screens to wire up.
 
-**Flutter** See [references/flutter_setup.md](references/flutter_setup.md).
-**Android (Kotlin)** See
-[references/client_sdk_android.md](references/client_sdk_android.md).
+- **Web**: [references/client_sdk_web.md](references/client_sdk_web.md)
+- **iOS (Swift)**: [references/ios_setup.md](references/ios_setup.md)
+- **Android (Kotlin)**:
+  [references/client_sdk_android.md](references/client_sdk_android.md)
+- **Flutter**: [references/flutter_setup.md](references/flutter_setup.md)
 
 ### 3. Drop-in Auth UI with FirebaseUI
 
-FirebaseUI provides pre-built sign-in screens on top of Firebase Auth, covering
-sign-in, sign-up, password reset, and account linking. Prefer it when the app
-needs a working auth flow quickly, and drop to the client SDKs above when the UI
-must be fully custom.
+FirebaseUI ships pre-built sign-in screens handling sign-in, sign-up, password
+reset, account linking, and MFA. Prefer it unless one of the section 2
+conditions applies. There is no FirebaseUI for Flutter — Flutter apps use the
+client SDK above.
 
-**iOS (SwiftUI)** See
-[references/firebaseui_ios.md](references/firebaseui_ios.md).
+- **iOS (SwiftUI)**:
+  [references/firebaseui_ios.md](references/firebaseui_ios.md)
+- **Android (Compose)**:
+  [references/firebaseui_android.md](references/firebaseui_android.md)
+- **Web (React, Shadcn, Angular)**:
+  [references/firebaseui_web.md](references/firebaseui_web.md)
 
-**Android (Compose)** See
-[references/firebaseui_android.md](references/firebaseui_android.md).
-
-**Web (React, Shadcn, Angular)** See
-[references/firebaseui_web.md](references/firebaseui_web.md).
+Each reference above is a pointer, not a guide: it routes to that library's own
+agent skill, which is maintained alongside the library. Load that skill and
+follow it — do not implement from the reference or the library README.
 
 ### 4. Security Rules
 
