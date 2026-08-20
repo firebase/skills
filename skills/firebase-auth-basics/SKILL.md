@@ -113,7 +113,23 @@ Enable other providers in the Firebase Console.
 **Android (Kotlin)** See
 [references/client_sdk_android.md](references/client_sdk_android.md).
 
-### 3. Security Rules
+### 3. Drop-in Auth UI with FirebaseUI
+
+FirebaseUI provides pre-built sign-in screens on top of Firebase Auth, covering
+sign-in, sign-up, password reset, and account linking. Prefer it when the app
+needs a working auth flow quickly, and drop to the client SDKs above when the UI
+must be fully custom.
+
+**iOS (SwiftUI)** See
+[references/firebaseui_ios.md](references/firebaseui_ios.md).
+
+**Android (Compose)** See
+[references/firebaseui_android.md](references/firebaseui_android.md).
+
+**Web (React, Shadcn, Angular)** See
+[references/firebaseui_web.md](references/firebaseui_web.md).
+
+### 4. Security Rules
 
 Secure your data using `request.auth` in Firestore/Storage rules.
 
