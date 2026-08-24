@@ -16,7 +16,7 @@ Firebase App Hosting allows you to choose a specific runtime environment (e.g., 
 
 ## Setup and Configuration
 
-### 1. Enable runtime Selection
+### 1. Enable Runtime Selection
 Ensure the `abiu` experiment is enabled on the local CLI:
 ```bash
 npx -y firebase-tools@latest experiments:enable abiu
