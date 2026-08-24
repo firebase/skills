@@ -22,7 +22,7 @@ Ensure the `abiu` experiment is enabled on the local CLI:
 npx -y firebase-tools@latest experiments:enable abiu
 ```
 
-### 2. Specifying runtime During Backend Creation
+### 2. Specifying Runtime During Backend Creation
 When creating a new backend programmatically or in non-interactive environments, specify the target versioned runtime using the `--runtime` flag:
 ```bash
 npx -y firebase-tools@latest apphosting:backends:create --runtime nodejs22 --backend my-backend-name --primary-region us-central1
