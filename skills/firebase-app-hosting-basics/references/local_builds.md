@@ -46,10 +46,6 @@ Enable the experimental CLI preview flag on your local machine:
 npx -y firebase-tools@latest experiments:enable apphostinglocalbuilds
 ```
 
-> [!NOTE] The experiment `universalMaker` is no longer a separate experiment
-> name in the Firebase CLI. All binary management and building capabilities are
-> fully handled under the `apphostinglocalbuilds` experiment.
-
 ### 2. Configure `firebase.json`
 
 To instruct the Firebase CLI to perform a local build during deploy, set
