@@ -105,11 +105,30 @@ Enable other providers in the Firebase Console.
 1. Select your project.
 1. Enable the desired Sign-in providers (e.g., Email/Password, Google).
 
-### 2. Client Setup & Usage
+### 2. Choose the Auth UI Approach
 
-Build auth UI yourself against the Auth SDK. Use these when the user asks for
-custom-designed screens, names their own UI framework or design system, or the
-app already has sign-in screens to wire up.
+> [!IMPORTANT] **For Agents:** For every request to add or build a sign-in,
+> sign-up, login, password-reset, or authentication flow, you MUST surface both
+> UI approaches and ask the user which they want before planning or changing
+> code:
+>
+> 1. **FirebaseUI** (recommended) — pre-built, maintained authentication screens
+>    and flows.
+> 1. **Direct Firebase Auth SDK integration** — for custom-designed screens, or
+>    to wire auth into screens the app already has.
+
+Briefly explain the tradeoffs when asking. Do not assume the user knows
+FirebaseUI exists. Do not pick direct SDK integration merely because the project
+uses Compose, SwiftUI, React, Angular, Flutter, or any other UI framework —
+FirebaseUI supports these.
+
+Skip the question only when the user has already chosen: they asked for
+FirebaseUI, asked for direct SDK integration or custom screens, or asked to wire
+Firebase Auth into existing screens.
+
+### 3. Direct Firebase Auth SDK Setup and Usage
+
+Build authentication UI directly against the Auth SDK.
 
 - **Web**: [references/client_sdk_web.md](references/client_sdk_web.md)
 - **iOS (Swift)**: [references/ios_setup.md](references/ios_setup.md)
@@ -117,11 +136,10 @@ app already has sign-in screens to wire up.
   [references/client_sdk_android.md](references/client_sdk_android.md)
 - **Flutter**: [references/flutter_setup.md](references/flutter_setup.md)
 
-### 3. Drop-in Auth UI with FirebaseUI
+### 4. Drop-in Auth UI with FirebaseUI
 
 FirebaseUI ships pre-built sign-in screens handling sign-in, sign-up, password
-reset, account linking, and MFA. Prefer it unless one of the section 2
-conditions applies.
+reset, account linking, and MFA.
 
 - **iOS (SwiftUI)**:
   [references/firebaseui_ios.md](references/firebaseui_ios.md)
@@ -133,10 +151,13 @@ conditions applies.
   [references/firebaseui_flutter.md](references/firebaseui_flutter.md)
 
 Each reference above is a pointer, not a guide: it routes to that library's own
-agent skill, or to its documentation where no skill exists. Load that source and
-follow it — do not implement from the reference or the library README.
+agent skill, or to its documentation where no skill exists.
 
-### 4. Security Rules
+Load and follow that source before planning or implementing the FirebaseUI flow.
+Do not implement from the pointer reference, from memory, or from a library
+README, which lags behind the library.
+
+### 5. Security Rules
 
 Secure your data using `request.auth` in Firestore/Storage rules.
 
