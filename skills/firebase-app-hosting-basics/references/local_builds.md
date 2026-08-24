@@ -81,7 +81,7 @@ Before adopting local builds, you must be aware of the following strict limitati
 The pre-compiled Universal Maker build binary only supports a subset of operating systems and architectures:
 - **macOS**: Only macOS Apple Silicon (`darwin_arm64`) is supported. macOS Intel (`darwin_x64`) is not supported.
 - **Linux**: Only Linux x86-64 (`linux_x64`) is supported. Linux ARM (`linux_arm64`) is not supported.
-- **Windows**: Windows (`win32`) is not supported. Windows developers must deploy from source or run the CLI inside a WSL (Windows Subsystem for Linux) environment.
+- **Windows**: Windows (`win32`) is not supported. Windows developers must either deploy from source (using Cloud Build) or run the CLI inside a WSL (Windows Subsystem for Linux) environment to perform local builds.
 
 ### 2. Security & Secret Exposure Caveats
 If your build depends on secrets marked for `BUILD` availability, the CLI fetches the raw, unencrypted values from Cloud Secret Manager and sets them as environment variables in the build context.
