@@ -1,6 +1,7 @@
 # Firebase AI Logic iOS Setup Guide
 
 ## 1. Import and Initialize
+
 Ensure you have installed the `FirebaseAILogic` SDK via Swift Package Manager.
 
 ```swift
@@ -9,15 +10,20 @@ import FirebaseAILogic
 // Initialize the Firebase AI service and the generative model.
 let ai = FirebaseAI.firebaseAI()
 
-// Specify a model that's appropriate for your use case.
-let model = ai.generativeModel(modelName: "gemini-flash-latest")
+// [AGENT] Replace "<latest_supported_model>" with the latest model from https://firebase.google.com/docs/ai-logic/models.md.txt
+let model = ai.generativeModel(modelName: "<latest_supported_model>")
 ```
 
 ## 2. SwiftUI Integration (Best Practices)
-Use the `@Observable` pattern to manage AI state and provide a smooth UX with loading indicators and error handling.
 
-> **⛔️ CRITICAL WARNING:** Do NOT initialize the model inline as a class property if there's any chance the view model is instantiated before `FirebaseApp.configure()` executes in the app root. 
-> To be safe, initialize the model lazily or pass it in from a point in the hierarchy where Firebase is guaranteed to be configured.
+Use the `@Observable` pattern to manage AI state and provide a smooth UX with
+loading indicators and error handling.
+
+> **⛔️ CRITICAL WARNING:** Do NOT initialize the model inline as a class
+> property if there's any chance the view model is instantiated before
+> `FirebaseApp.configure()` executes in the app root. To be safe, initialize the
+> model lazily or pass it in from a point in the hierarchy where Firebase is
+> guaranteed to be configured.
 
 ```swift
 import SwiftUI
@@ -26,8 +32,8 @@ import FirebaseAILogic
 @MainActor
 @Observable
 final class AIViewModel {
-    // Initialize lazily to ensure FirebaseApp is configured first
-    private lazy var model = FirebaseAI.firebaseAI().generativeModel(modelName: "gemini-flash-latest")
+    // [AGENT] Replace with the latest model from https://firebase.google.com/docs/ai-logic/models.md.txt
+    private lazy var model = FirebaseAI.firebaseAI().generativeModel(modelName: "<latest_supported_model>")
     
     var responseText: String = ""
     var isFetching: Bool = false
@@ -76,7 +82,9 @@ struct AIView: View {
 ```
 
 ## 3. Safety Settings
-You can configure safety thresholds to prevent the model from generating harmful content.
+
+You can configure safety thresholds to prevent the model from generating harmful
+content.
 
 ```swift
 let safetySettings = [
@@ -85,7 +93,7 @@ let safetySettings = [
 ]
 
 let model = FirebaseAI.firebaseAI().generativeModel(
-  modelName: "gemini-flash-latest",
+  modelName: "<latest_supported_model>", // [AGENT] Replace with the latest model from https://firebase.google.com/docs/ai-logic/models.md.txt
   safetySettings: safetySettings
 )
 ```
@@ -93,7 +101,9 @@ let model = FirebaseAI.firebaseAI().generativeModel(
 # Advanced Features
 
 ### Chat Session (Multi-turn)
-Chat sessions persist state across multiple interactions, which is essential for ongoing conversations or when using tools like function calling.
+
+Chat sessions persist state across multiple interactions, which is essential for
+ongoing conversations or when using tools like function calling.
 
 ```swift
 let chat = model.startChat()
@@ -112,7 +122,10 @@ Task {
 ```
 
 ### Function Calling (Tools)
-Define functions that the model can request to execute to interact with external systems. *Note: Advanced workflows like function calling generally require a multi-turn Chat Session to handle the back-and-forth execution.*
+
+Define functions that the model can request to execute to interact with external
+systems. *Note: Advanced workflows like function calling generally require a
+multi-turn Chat Session to handle the back-and-forth execution.*
 
 ```swift
 let getStockPriceTool = Tool(functionDeclarations: [
@@ -129,7 +142,7 @@ let getStockPriceTool = Tool(functionDeclarations: [
 ])
 
 let model = FirebaseAI.firebaseAI().generativeModel(
-  modelName: "gemini-flash-latest",
+  modelName: "<latest_supported_model>", // [AGENT] Replace with the latest model from https://firebase.google.com/docs/ai-logic/models.md.txt
   tools: [getStockPriceTool]
 )
 

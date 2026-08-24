@@ -1,7 +1,9 @@
 # Firebase AI Logic Basics
 
 ## Initialization Pattern
+
 You must initialize the ai-logic service after the main Firebase App.
+
 ```JavaScript
 import { initializeApp } from "firebase/app";
 import { getAI, getGenerativeModel, GoogleAIBackend } from "firebase/ai";
@@ -18,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize the AI Logic service (defaults to Gemini Developer API)
 // To set the AI provider, set the backend as the second parameter
-const ai = getAI(firebaseApp, { backend: new GoogleAIBackend() });
+const ai = getAI(app, { backend: new GoogleAIBackend() });
 
 const generationConfig = {
   candidate_count: 1,
@@ -30,11 +32,14 @@ const generationConfig = {
 };
 
 // Specify the config as part of creating the `GenerativeModel` instance
-const model = getGenerativeModel(ai, { model: "gemini-2.5-flash-lite",  generationConfig });
+// [AGENT] Replace "<latest_supported_model>" with the latest model from https://firebase.google.com/docs/ai-logic/models.md.txt
+const model = getGenerativeModel(ai, { model: "<latest_supported_model>",  generationConfig });
 ```
 
 ## Core Capabilities
+
 Text-Only Generation
+
 ```JavaScript
 async function generateText(prompt) {
   const result = await model.generateContent(prompt);
@@ -44,7 +49,9 @@ async function generateText(prompt) {
 ```
 
 ## Multimodal (Text + Images/Audio/Video/PDF input)
+
 Firebase AI Logic accepts Base64 encoded data or specific file references.
+
 ```JavaScript
 // Helper to convert file to base64 generic object
 async function fileToGenerativePart(file) {
@@ -70,7 +77,9 @@ async function analyzeImage(prompt, imageFile) {
 ```
 
 ## Chat Session (Multi-turn)
+
 Maintain history automatically using startChat.
+
 ```JavaScript
 const chat = model.startChat({
   history: [
@@ -92,7 +101,9 @@ async function sendMessage(msg) {
 ```
 
 ## Streaming Responses
+
 For real-time UI updates (like a typing effect).
+
 ```JavaScript
 async function streamResponse(prompt) {
   const result = await model.generateContentStream(prompt);
@@ -119,7 +130,7 @@ const ai = getAI(firebaseApp, { backend: new GoogleAIBackend() });
 
 // Create a `GenerativeModel` instance with a model that supports your use case
 const model = getGenerativeModel(ai, {
-  model: "gemini-2.5-flash-image",
+  model: "<latest_supported_image_model>", // [AGENT] Replace with the latest image model from https://firebase.google.com/docs/ai-logic/models.md.txt
   // Configure the model to respond with text and images (required)
   generationConfig: {
     responseModalities: [ResponseModality.TEXT, ResponseModality.IMAGE],
@@ -145,12 +156,13 @@ try {
 ```
 
 ## Advanced Features
-Structured Output (JSON)
-Enforce a specific JSON schema for the response.
+
+Structured Output (JSON) Enforce a specific JSON schema for the response.
+
 ```JavaScript
 import { getGenerativeModel, Schema } from "firebase/ai";
 const jsonModel = getGenerativeModel(ai, {
-    model: "gemini-2.5-flash-lite",
+    model: "<latest_supported_model>", // [AGENT] Replace with the latest model from https://firebase.google.com/docs/ai-logic/models.md.txt
     generationConfig: {
         responseMimeType: "application/json",
         // Optional: Define a schema
@@ -164,11 +176,11 @@ async function getJsonData(prompt) {
 }
 ```
 
-On-Device AI (Hybrid)
-Automatically switch between local Gemini Nano and cloud models based on device capability.
+On-Device AI (Hybrid) Automatically switch between local Gemini Nano and cloud
+models based on device capability.
+
 ```JavaScript
 import {getGenerativeModel, InferenceMode } from "firebase/ai";
 
 const hybridModel = getGenerativeModel(ai, { mode: InferenceMode.PREFER_ON_DEVICE });
 ```
-
