@@ -119,8 +119,8 @@ Enable other providers in the Firebase Console.
 
 Briefly explain the tradeoffs when asking. Do not assume the user knows
 FirebaseUI exists. Do not pick direct SDK integration merely because the project
-uses Compose, SwiftUI, React, Angular, Flutter, or any other UI framework —
-FirebaseUI supports these.
+uses Compose, SwiftUI, React, Angular, Flutter, or another framework supported
+by that platform's FirebaseUI library.
 
 Skip the question only when the user has already chosen: they asked for
 FirebaseUI, asked for direct SDK integration or custom screens, or asked to wire
