@@ -71,7 +71,7 @@ This is the recommended flow for most users.
 If you want faster deployments by bypassing Cloud Build queues, you can compile
 your full-stack web application locally.
 
-1. Enable the `abiu` and `apphostinglocalbuilds` experiments and configure
+1. Enable the `apphostinglocalbuilds` experiment and configure
    `"localBuild": true` in your `firebase.json` file.
 1. Run `npx -y firebase-tools@latest deploy --only apphosting` to compile and
    deploy the pre-built assets.

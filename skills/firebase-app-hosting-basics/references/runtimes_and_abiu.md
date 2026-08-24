@@ -28,17 +28,7 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Setup and Configuration
-
-### 1. Enable Runtime Selection
-
-Ensure the `abiu` experiment is enabled on the local CLI:
-
-```bash
-npx -y firebase-tools@latest experiments:enable abiu
-```
-
-### 2. Specifying Runtime During Backend Creation
+## Specifying Runtime During Backend Creation
 
 When creating a new backend programmatically or in non-interactive environments,
 specify the target versioned runtime using the `--runtime` flag:

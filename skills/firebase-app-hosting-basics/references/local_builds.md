@@ -38,12 +38,11 @@ ______________________________________________________________________
 
 ## Setup and Configuration
 
-### 1. Enable Experiments
+### 1. Enable Experiment
 
-Enable the required experimental CLI preview flags on your local machine:
+Enable the experimental CLI preview flag on your local machine:
 
 ```bash
-npx -y firebase-tools@latest experiments:enable abiu
 npx -y firebase-tools@latest experiments:enable apphostinglocalbuilds
 ```
 
