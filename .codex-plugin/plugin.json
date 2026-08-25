@@ -43,7 +43,7 @@
       "Audit my Firestore security rules.",
       "Deploy this app with Firebase Hosting."
     ],
-    "brandColor": "#FFCA28",
+    "brandColor": "#FF9100",
     "composerIcon": "./assets/firebase_logo.svg",
     "logo": "./assets/firebase_logo.svg"
   }
