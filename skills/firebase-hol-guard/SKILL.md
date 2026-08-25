@@ -28,20 +28,18 @@ hol-guard status
 hol-guard detect --json
 ```
 
-For the harness that will perform Firebase work, bootstrap and install Guard,
-then verify a protected launch before making project changes:
+For the harness that will perform Firebase work, install Guard, then verify a
+protected launch before making project changes:
 
 ```bash
-hol-guard bootstrap
 hol-guard install <harness>
 hol-guard run <harness> --dry-run
 hol-guard run <harness>
 hol-guard status
 ```
 
-Use the harness identifier reported by `hol-guard detect`. Supported harnesses
-include Codex, Claude Code, Copilot CLI, Cursor, Gemini, Hermes, OpenClaw,
-OpenCode, and Antigravity. Do not claim a workspace is protected until Guard
+Use the exact harness identifier reported by `hol-guard detect`; do not infer or
+substitute a product name. Do not claim a workspace is protected until Guard
 reports the harness setup successfully.
 
 ## Use with Firebase Agent Skills
