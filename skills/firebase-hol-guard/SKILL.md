@@ -28,17 +28,20 @@ hol-guard status
 hol-guard detect --json
 ```
 
-For the harness that will perform Firebase work, install Guard, then verify a
-protected launch before making project changes:
+Initialize Guard-managed local state, then install Guard for the exact harness
+reported by `hol-guard detect` and verify a protected launch before making
+project changes:
 
 ```bash
+hol-guard bootstrap
 hol-guard install <harness>
 hol-guard run <harness> --dry-run
 hol-guard run <harness>
 hol-guard status
 ```
 
-Use the exact harness identifier reported by `hol-guard detect`; do not infer or
+`hol-guard bootstrap` is part of HOL Guard's maintained setup flow. Use the
+exact harness identifier reported by `hol-guard detect`; do not infer or
 substitute a product name. Do not claim a workspace is protected until Guard
 reports the harness setup successfully.
 
