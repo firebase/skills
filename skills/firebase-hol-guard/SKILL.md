@@ -63,14 +63,15 @@ If Guard blocks or queues work, inspect the request before proceeding:
 
 ```bash
 hol-guard approvals
-hol-guard approvals open
+hol-guard approvals open <request-id>
 hol-guard receipts
 hol-guard diff <harness>
 ```
 
-Only approve after reviewing the risk reason and requested scope. Never bypass
-Guard by launching an unprotected copy of the agent or editing around
-Guard-owned hooks.
+Pass the pending approval request ID to `hol-guard approvals open` so the CLI
+opens the specific queued request. Only approve after reviewing the risk reason
+and requested scope. Never bypass Guard by launching an unprotected copy of the
+agent or editing around Guard-owned hooks.
 
 ## Diagnose protection
 
