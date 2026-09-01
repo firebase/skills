@@ -91,14 +91,15 @@ ensure a 5/5 score against the Firebase Security Rules Auditor:
   - URL fields: `isValidUrl(data.avatarUrl) && data.avatarUrl.size() <= 2048`
 - Every list/array field must have size bounds:
   - `data.tags is list && data.tags.size() <= 20`
-- Number fields must have realistic boundaries:
-  - `data.price is number && data.price >= 0 && data.price <= 1000000`
+- Number fields must have realistic boundaries (note: CEL requires `is int` or
+  `is float` rather than `is number`):
+  - `(data.price is int || data.price is float) && data.price >= 0 && data.price <= 1000000`
 
 ### 5. Strict Type Safety
 
 - Validate all fields against explicit CEL types:
   - `data.title is string`
-  - `data.count is int` or `data.price is number`
+  - `data.count is int` or `(data.price is int || data.price is float)`
   - `data.isActive is bool`
   - `data.createdAt is timestamp`
   - `data.tags is list`
@@ -232,7 +233,7 @@ function isOwner(userId) {
 }
 
 function isDocOwner() {
-  return isAuthenticated() && request.auth.uid == resource.data.uid;
+  return isAuthenticated() && resource != null && request.auth.uid == resource.data.uid;
 }
 
 function hasRequiredFields(fields) {
@@ -287,7 +288,8 @@ function isRecent(time) {
 }
 
 function isPositive(field) {
-  return request.resource.data[field] is number && request.resource.data[field] > 0;
+  return (request.resource.data[field] is int || request.resource.data[field] is float) &&
+         request.resource.data[field] > 0;
 }
 ```
 
