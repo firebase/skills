@@ -79,16 +79,27 @@ Verify the installation:
 
 ### Option 6: Antigravity Plugin
 
-This repository is structured as a native Antigravity plugin. You can enable it
-in Antigravity or Jetski by cloning or registering the plugin:
+This repository includes a dedicated Antigravity plugin under
+`plugins/antigravity` that hosts the `firestore-rules-author` subagent.
+
+You can import the plugin into Antigravity or Jetski:
 
 ```bash
-agy plugin import https://github.com/firebase/agent-skills
+agy plugin import https://github.com/firebase/agent-skills --path plugins/antigravity
 ```
 
-Or enable it directly within your workspace `plugins.json` or `config.json`. The
-plugin bundles official Firebase skills, the Firebase MCP server, and the
-`firestore-rules-author` subagent.
+Or enable it directly within your workspace `plugins.json` or personal
+`~/.gemini/config/plugins.json`:
+
+```json
+{
+  "entries": [
+    {
+      "path": "path/to/agent-skills/plugins/antigravity"
+    }
+  ]
+}
+```
 
 ### Option 7: Manual Set Up
 
