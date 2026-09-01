@@ -77,7 +77,20 @@ Verify the installation:
 /plugins list
 ```
 
-### Option 6: Manual Set Up
+### Option 6: Antigravity Plugin
+
+This repository is structured as a native Antigravity plugin. You can enable it
+in Antigravity or Jetski by cloning or registering the plugin:
+
+```bash
+agy plugin import https://github.com/firebase/agent-skills
+```
+
+Or enable it directly within your workspace `plugins.json` or `config.json`. The
+plugin bundles official Firebase skills, the Firebase MCP server, and the
+`firestore-rules-author` subagent.
+
+### Option 7: Manual Set Up
 
 1. Clone this repository:
 
@@ -92,7 +105,7 @@ git clone https://github.com/firebase/skills.git
    - **GitHub Copilot**: `.github/copilot-instructions.md` (or project-specific
      instruction files)
 
-### Option 7: Local Path via Agent Skills CLI
+### Option 8: Local Path via Agent Skills CLI
 
 The `skills` CLI also supports installing skills from a local directory. If you
 have cloned this repository, you can add skills by pointing the CLI to your
@@ -109,7 +122,7 @@ project with the new changes, you can update them by running:
 npx skills experimental_install
 ```
 
-### Option 8: Local Development (Live Symlinking)
+### Option 9: Local Development (Live Symlinking)
 
 If you are actively contributing to or developing these skills, using
 `npx skills add` or copying files means you have to manually update them every

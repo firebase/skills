@@ -1,0 +1,54 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "firebase",
+  "displayName": "Firebase",
+  "version": "1.1.0",
+  "description": "Official Firebase plugin for Antigravity. Prototype, build, and run modern apps with Firebase backend and AI infrastructure, and author, audit, and test Firestore security rules.",
+  "author": {
+    "name": "Firebase",
+    "email": "firebase-support@google.com",
+    "url": "https://firebase.google.com"
+  },
+  "homepage": "https://github.com/firebase/agent-skills",
+  "repository": "https://github.com/firebase/agent-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "firebase",
+    "antigravity",
+    "skills",
+    "agents",
+    "subagents",
+    "mcp",
+    "firestore",
+    "security-rules",
+    "rules",
+    "cloud-services"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "mcpServers": "./.mcp.json",
+  "logo": "./assets/firebase_logo.svg",
+  "interface": {
+    "displayName": "Firebase",
+    "shortDescription": "Build and manage Firebase apps from Antigravity.",
+    "longDescription": "Use official Firebase skills, specialized subagents, and the Firebase MCP server to set up projects, configure backend services, query Firestore, manage authentication, deploy hosting, work with AI Logic, and author and audit security rules.",
+    "developerName": "Firebase",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Skills",
+      "Agents",
+      "MCP"
+    ],
+    "websiteURL": "https://firebase.google.com",
+    "privacyPolicyURL": "https://policies.google.com/privacy",
+    "termsOfServiceURL": "https://policies.google.com/terms",
+    "defaultPrompt": [
+      "Write Firestore security rules for this data model.",
+      "Audit my Firestore security rules for vulnerabilities.",
+      "Set up Firebase in this app."
+    ],
+    "brandColor": "#FF9100",
+    "composerIcon": "./assets/firebase_logo.svg",
+    "logo": "./assets/firebase_logo.svg"
+  }
+}
