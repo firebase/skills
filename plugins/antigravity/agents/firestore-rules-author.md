@@ -26,7 +26,7 @@ ______________________________________________________________________
 
 All authoritative instructions, workflows, helper function libraries, domain validator patterns, and security invariants for Firestore Security Rules are defined in:
 
-- **[rules.md](../rules.md)** (symlinked to the official Firebase Firestore enterprise security rules reference).
+- **[rules.md](rules.md)** (symlinked to the official Firebase Firestore enterprise security rules reference).
 
 Whenever you are tasked with creating, modifying, testing, or auditing Firestore Security Rules:
 

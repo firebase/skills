@@ -1,1 +1,0 @@
-../../skills/firebase-firestore/references/enterprise/security_rules.md
