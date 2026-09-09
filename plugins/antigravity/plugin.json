@@ -22,7 +22,7 @@
     "rules"
   ],
   "agents": "./agents/",
-  "logo": "../../assets/firebase_logo.svg",
+  "logo": "./assets/firebase_logo.svg",
   "interface": {
     "displayName": "Firebase Rules Specialist",
     "shortDescription": "Author and audit Firestore Security Rules with a specialized subagent.",
@@ -40,7 +40,7 @@
       "Audit my Firestore security rules for vulnerabilities."
     ],
     "brandColor": "#FF9100",
-    "composerIcon": "../../assets/firebase_logo.svg",
-    "logo": "../../assets/firebase_logo.svg"
+    "composerIcon": "./assets/firebase_logo.svg",
+    "logo": "./assets/firebase_logo.svg"
   }
 }
