@@ -1,0 +1,46 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "firebase-rules",
+  "displayName": "Firebase Rules Specialist",
+  "version": "1.0.0",
+  "description": "Antigravity plugin hosting the Firestore Security Rules specialist subagent for designing, auditing, and hardening Firebase security rules.",
+  "author": {
+    "name": "Firebase",
+    "email": "firebase-support@google.com",
+    "url": "https://firebase.google.com"
+  },
+  "homepage": "https://github.com/firebase/agent-skills",
+  "repository": "https://github.com/firebase/agent-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "firebase",
+    "antigravity",
+    "agents",
+    "subagents",
+    "firestore",
+    "security-rules",
+    "rules"
+  ],
+  "agents": "./agents/",
+  "logo": "./assets/firebase_logo.svg",
+  "interface": {
+    "displayName": "Firebase Rules Specialist",
+    "shortDescription": "Author and audit Firestore Security Rules with a specialized subagent.",
+    "longDescription": "A dedicated Antigravity plugin providing the firestore-rules-author subagent to design, author, and audit production-grade Cloud Firestore security rules with strict type checking, update-bypass prevention, and PII isolation.",
+    "developerName": "Firebase",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Agents"
+    ],
+    "websiteURL": "https://firebase.google.com",
+    "privacyPolicyURL": "https://policies.google.com/privacy",
+    "termsOfServiceURL": "https://policies.google.com/terms",
+    "defaultPrompt": [
+      "Write Firestore security rules for this data model.",
+      "Audit my Firestore security rules for vulnerabilities."
+    ],
+    "brandColor": "#FF9100",
+    "composerIcon": "./assets/firebase_logo.svg",
+    "logo": "./assets/firebase_logo.svg"
+  }
+}
